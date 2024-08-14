@@ -58,7 +58,7 @@ function AddPage() {
               className="bg-cyan-500 text-white px-4 py-2 rounded-md shadow hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
               onClick={post}
             >
-              Submit
+              Add
             </button>
           </div>
         </div>

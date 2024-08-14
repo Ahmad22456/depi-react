@@ -4,7 +4,9 @@ import Dropdown from "./Dropdown";
 function Header() {
   return (
     <div className="flex w-full bg-slate-200 px-40 py-4 fixed top-0 left-0 bg-cyan-400-500 justify-between items-center">
-      <div className="text-2xl font-bold w-1/4">Help Scout</div>
+      <Link className="text-2xl font-bold w-1/4" to="/">
+        Help Scout
+      </Link>
       <div className="w-2/4 flex justify-start items-center gap-20">
         <Dropdown
           label="Product"

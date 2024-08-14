@@ -1,8 +1,18 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import image from "../assets/image.webp";
+import { api } from "../utils/axios";
 
 function Card({ id, title, description }) {
+  async function deletePost() {
+    try {
+      const res = await api.delete(`https://dummyjson.com/posts/${id}`);
+      alert(`"${res.data.title}"   has been deleted`);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="w-96 rounded-lg shadow-lg bg-white flex flex-col">
       <img src={image} alt="" className="w-full h-1/2 object-cover" />
@@ -24,6 +34,12 @@ function Card({ id, title, description }) {
           >
             Edit Post
           </Link>
+          <button
+            className="bg-red-900 text-white rounded px-4 py-1"
+            onClick={deletePost}
+          >
+            Delete Post
+          </button>
         </div>
       </div>
     </div>

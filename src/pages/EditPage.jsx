@@ -1,13 +1,18 @@
 import { useParams } from "react-router-dom";
 import useCustom from "../hooks/customHook";
 import { api } from "../utils/axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function EditPage() {
   const params = useParams();
   const [data, loading] = useCustom(params.id);
   const [title, setTitle] = useState(data.title);
   const [body, setBody] = useState(data.body);
+
+  useEffect(() => {
+    setTitle(data.title);
+    setBody(data.body);
+  }, [data]);
 
   async function edit() {
     try {
@@ -17,6 +22,7 @@ function EditPage() {
         body,
       });
       console.log(res.data);
+      alert("Post has been updated");
     } catch (error) {
       console.error(error);
     }
@@ -67,7 +73,7 @@ function EditPage() {
                 className="bg-cyan-500 text-white px-4 py-2 rounded-md shadow hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 onClick={edit}
               >
-                Submit
+                Edit
               </button>
             </div>
           </div>
