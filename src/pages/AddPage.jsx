@@ -8,10 +8,10 @@ function AddPage() {
   async function post() {
     try {
       const res = await api.post("https://dummyjson.com/posts/add", {
+        userId: 1,
         title,
         body,
       });
-
       console.log(res.data);
     } catch (error) {
       console.error(error);

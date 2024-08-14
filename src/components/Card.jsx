@@ -11,12 +11,18 @@ function Card({ id, title, description }) {
         <p className="h-20 text-gray-700 overflow-hidden text-justify text-sm mb-11">
           {description}
         </p>
-        <div className="w-full text-center mt-auto">
+        <div className="w-full flex justify-center items-center gap-3 mt-auto">
           <Link
             className="bg-blue-900 text-white rounded px-4 py-1"
             to={`${id}`}
           >
             More info
+          </Link>
+          <Link
+            className="bg-blue-900 text-white rounded px-4 py-1"
+            to={`${id}/update`}
+          >
+            Edit Post
           </Link>
         </div>
       </div>
